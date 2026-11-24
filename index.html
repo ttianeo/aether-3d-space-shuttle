@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VX-09 AETHER — Deep Space Transit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="canvas-container"></div>
+
+    <!-- Subtle reticle / flight horizon overlay -->
+    <div id="reticle-layer" class="hud-element">
+      <div class="horizon-ring">
+        <div class="horizon-tick left"></div>
+        <div class="horizon-center"></div>
+        <div class="horizon-tick right"></div>
+      </div>
+    </div>
+
+    <!-- Main HUD overlay -->
+    <div id="hud" class="hud-element">
+      <!-- Top Bar -->
+      <header class="hud-top">
+        <div class="brand-panel glass">
+          <div class="status-dot"></div>
+          <div class="brand-text">
+            <div class="craft-id">VX-09 <span class="accent">AETHER</span></div>
+            <div class="sector-id">KEPLER-442 CORRIDOR // TRANSIT LANE 07</div>
+          </div>
+        </div>
+
+        <div class="telemetry-strip glass">
+          <div class="metric">
+            <span class="label">VELOCITY</span>
+            <span class="value" id="hud-speed">14.8 <small>km/s</small></span>
+          </div>
+          <div class="divider"></div>
+          <div class="metric">
+            <span class="label">WARP FACTOR</span>
+            <span class="value accent" id="hud-warp">0.18 <small>c</small></span>
+          </div>
+          <div class="divider"></div>
+          <div class="metric">
+            <span class="label">GATES CLEARED</span>
+            <span class="value" id="hud-gates">00</span>
+          </div>
+          <div class="divider"></div>
+          <div class="metric">
+            <span class="label">THRUSTERS</span>
+            <span class="value" id="hud-thrust">62%</span>
+          </div>
+        </div>
+
+        <div class="top-actions">
+          <button id="btn-audio" class="icon-btn glass" title="Toggle Engine Audio (M)">
+            <span class="btn-indicator" id="audio-indicator"></span>
+            <span id="audio-label">AUDIO OFF</span>
+          </button>
+          <button id="btn-hud" class="icon-btn glass" title="Toggle HUD (H)">
+            HUD
+          </button>
+        </div>
+      </header>
+
+      <!-- Speed / Warp Banner -->
+      <div id="warp-alert" class="warp-banner">
+        <span>HYPERDRIVE ENGAGED // RELATIVISTIC TRANSIT</span>
+      </div>
+
+      <!-- Bottom Control Dock -->
+      <footer class="hud-bottom">
+        <!-- Camera Switcher -->
+        <div class="control-group glass">
+          <span class="group-label">CAMERA</span>
+          <div class="pill-row" id="camera-modes">
+            <button class="pill active" data-cam="chase">CHASE</button>
+            <button class="pill" data-cam="cinematic">CINEMATIC</button>
+            <button class="pill" data-cam="wing">WING CAM</button>
+            <button class="pill" data-cam="orbit">FREE ORBIT</button>
+          </div>
+        </div>
+
+        <!-- Primary Warp Trigger -->
+        <div class="warp-dock">
+          <button id="btn-warp" class="warp-btn">
+            <span class="warp-glow"></span>
+            <span class="warp-label">HOLD SPACE · WARP BOOST</span>
+          </button>
+        </div>
+
+        <!-- Flight Controls & Mode -->
+        <div class="control-group glass">
+          <span class="group-label">FLIGHT</span>
+          <div class="pill-row">
+            <button id="btn-autopilot" class="pill active" title="Toggle Autopilot (P)">
+              AUTOPILOT
+            </button>
+            <button id="btn-roll" class="pill" title="Execute Barrel Roll (R)">
+              BARREL ROLL
+            </button>
+          </div>
+        </div>
+      </footer>
+
+      <!-- Keybind Hint -->
+      <div class="hint-bar">
+        <span><kbd>WASD</kbd> / <kbd>MOUSE</kbd> Steer</span>
+        <span><kbd>SPACE</kbd> Warp Boost</span>
+        <span><kbd>R</kbd> Barrel Roll</span>
+        <span><kbd>1-4</kbd> Camera</span>
+        <span><kbd>H</kbd> Cinema Mode</span>
+      </div>
+    </div>
+
+    <!-- Minimal floating restore button when HUD hidden -->
+    <button id="btn-hud-restore" class="hud-restore glass" title="Show HUD (H)">
+      SHOW HUD [H]
+    </button>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "aether-3d-space-shuttle",
+  "version": "1.0.0",
+  "description": "Cinematic 3D WebGL scene of a futuristic aircraft shuttling through deep space",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "vite": "^8.3.8"
+  }
+}
